@@ -16,7 +16,7 @@ namespace Superhero_Project.Migrations
 
         protected override void Seed(Superhero_Project.Models.ApplicationDbContext context)
         {
-            context.Superheroes.AddOrUpdate(x => x.Id,
+            context.Superheros.AddOrUpdate(x => x.Id,
             new Models.Superhero() { Id = 1, Name = "Batman", AlterEgo = "Bruce Wayne", PrimaryAbility = "Billionaire Playboy", SecondaryAbility = "Ninja training", Catchphrase = "I am Batman!"},
             new Models.Superhero() { Id = 2, Name = "Deadpool", AlterEgo = "Wade Wilson", PrimaryAbility = "Regenerative Healing", SecondaryAbility = "Medium Awarness", Catchphrase = "Maximum effort!"},
             new Models.Superhero() { Id = 3, Name = "Spiderman", AlterEgo = "Peter Parker", PrimaryAbility = "All abilities of a spider", SecondaryAbility = "Enhanced suit made by Tony Stark", Catchphrase = "My spider sense is tingling"},
