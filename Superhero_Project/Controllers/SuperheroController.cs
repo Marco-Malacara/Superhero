@@ -21,25 +21,28 @@ namespace Superhero_Project.Controllers
             SuperheroContext db = new SuperheroContext();
             db.Superhero.Add(superhero);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("SuperheroList");
         }
         public ActionResult SuperheroDelete()
         {
             return View();
         }
-        public ActionResult SuperheroDetails(int id = 0)
+        public ActionResult SuperheroDetails(int? id)
         {
             SuperheroContext db = new SuperheroContext();
-            Superhero details = db.Superhero.Find(id);
+            Superhero details = db.Superhero.SingleOrDefault(identity => identity.Id == id);
             if (details == null)
             {
                 return HttpNotFound();
             }
             return View(details);
         }
-        public ActionResult Edit()
+        public ActionResult SuperheroEdit(Superhero superhero)
         {
-            return View();
+            SuperheroContext db = new SuperheroContext();
+            db.Entry(superhero).State = EntityState.Modified;
+            db.SaveChanges();
+            return View("SuperheroList");
         }
         public ActionResult List()
         {
