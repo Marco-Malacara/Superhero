@@ -1,0 +1,50 @@
+﻿@model Superhero_Project.Models.Superhero
+
+@{
+    ViewBag.Title = "SuperheroDetails";
+}
+
+<h2>SuperheroDetails</h2>
+
+<div>
+    <h4>Superhero</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlterEgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlterEgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryAbility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryAbility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryAbility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryAbility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catchphrase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catchphrase)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Name }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
