@@ -10,27 +10,32 @@ namespace Superhero_Project.Controllers
 {
     public class SuperheroController : Controller
     {
-        
-        // GET: Superhero
-        public ActionResult Index()
+    
+        public ActionResult SuperheroList()
         {
-            ApplicationDbContext db = new ApplicationDbContext();
-            return View();
+            SuperheroContext db = new SuperheroContext();
+            return View(db.Superhero);
         }
-        public ActionResult Create(Superhero superhero)
+        public ActionResult SuperheroCreate(Superhero superhero)
         {
-            ApplicationDbContext db = new ApplicationDbContext();
-            db.Superheros.Add(superhero);
+            SuperheroContext db = new SuperheroContext();
+            db.Superhero.Add(superhero);
             db.SaveChanges();
             return View();
         }
-        public ActionResult Delete()
+        public ActionResult SuperheroDelete()
         {
             return View();
         }
-        public ActionResult Details()
+        public ActionResult SuperheroDetails(int id = 0)
         {
-            return View();
+            SuperheroContext db = new SuperheroContext();
+            Superhero details = db.Superhero.Find(id);
+            if (details == null)
+            {
+                return HttpNotFound();
+            }
+            return View(details);
         }
         public ActionResult Edit()
         {
