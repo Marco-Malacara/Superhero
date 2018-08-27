@@ -14,8 +14,8 @@ namespace Superhero_Project.Controllers
         // GET: Superhero
         public ActionResult Index()
         {
-            
-            return View();
+            ApplicationDbContext db = new ApplicationDbContext();
+            return View(db.Superheros.ToList());
         }
         public ActionResult Create(Superhero superhero)
         {
