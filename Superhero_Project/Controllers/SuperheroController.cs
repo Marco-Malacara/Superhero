@@ -23,9 +23,20 @@ namespace Superhero_Project.Controllers
             db.SaveChanges();
             return RedirectToAction("SuperheroList");
         }
-        public ActionResult SuperheroDelete()
+        public ActionResult SuperheroDelete(int? id)
         {
-            return View();
+            SuperheroContext db = new SuperheroContext();
+            Superhero heroDelete = db.Superhero.SingleOrDefault(identity => identity.Id == id);
+            return View(heroDelete);
+        }
+        [HttpPost]
+        public ActionResult SuperheroDelete(int id)
+        {
+            SuperheroContext db = new SuperheroContext();
+            Superhero heroDelete = db.Superhero.SingleOrDefault(identity => identity.Id == id);
+            db.Superhero.Remove(heroDelete);
+            db.SaveChanges();
+            return RedirectToAction("SuperheroList");
         }
         public ActionResult SuperheroDetails(int? id)
         {
@@ -37,16 +48,19 @@ namespace Superhero_Project.Controllers
             }
             return View(details);
         }
+        public ActionResult SuperheroEdit(int? id)
+        {
+            SuperheroContext db = new SuperheroContext();
+            Superhero heroEdit = db.Superhero.SingleOrDefault(identity => identity.Id == id);
+            return View(heroEdit);
+        }
+        [HttpPost]
         public ActionResult SuperheroEdit(Superhero superhero)
         {
             SuperheroContext db = new SuperheroContext();
             db.Entry(superhero).State = EntityState.Modified;
             db.SaveChanges();
-            return View("SuperheroList");
-        }
-        public ActionResult List()
-        {
-            return View();
+            return RedirectToAction("SuperheroList");
         }
     }
 }

@@ -12,16 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AlterEgo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryAbility)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SecondaryAbility)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Catchphrase)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th></th>
     </tr>
@@ -29,21 +20,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AlterEgo)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PrimaryAbility)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SecondaryAbility)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Catchphrase)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "SuperheroEdit", new { id=item.Name }) |
+            @Html.ActionLink("Edit", "SuperheroEdit", new { id=item.Id }) |
             @Html.ActionLink("Details", "SuperheroDetails", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "SuperheroDelete", new { id=item.Name })
+            @Html.ActionLink("Delete", "SuperheroDelete", new { id=item.Id })
         </td>
     </tr>
 }
