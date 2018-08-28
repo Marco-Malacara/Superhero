@@ -1,34 +1,41 @@
 ﻿@model IEnumerable<Superhero_Project.Models.Superhero>
 
 @{
+
     ViewBag.Title = "SuperheroList";
 }
+<body>
+    <center>
+        <img src="~/Image/giffy.gif" height="200" style="border:groove"/>
+    </center>
+</body>
+<center>
+    <h2>Superhero List</h2>
+</center>
+    <p>
+        @Html.ActionLink("Create New", "SuperheroCreate")
+    </p>
+    <table class="table" style="border:groove; border-color:aliceblue">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
 
-<h2>SuperheroList</h2>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "SuperheroEdit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "SuperheroDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "SuperheroDelete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-<p>
-    @Html.ActionLink("Create New", "SuperheroCreate")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+    </table>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("create", "SuperheroCreate", new { id = item.Id }) |
-            @Html.ActionLink("Edit", "SuperheroEdit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "SuperheroDetails", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "SuperheroDelete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
