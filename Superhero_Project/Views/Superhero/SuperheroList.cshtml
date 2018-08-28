@@ -6,23 +6,25 @@
 }
 <body>
     <center>
-        <img src="~/Image/giffy.gif" height="200" style="border:groove"/>
+        <h2>Superhero List</h2>
     </center>
-</body>
-<center>
-    <h2>Superhero List</h2>
-</center>
-    <p>
-        @Html.ActionLink("Create New", "SuperheroCreate")
-    </p>
-    <table class="table" style="border:groove; border-color:aliceblue">
-        <tr>
+    <center>
+        <img src="~/Image/giffy.gif" height="200" style="border:groove; border-color:aliceblue" />
+    </center>
+    <center>
+        <button type="button" class="btn btn-lg btn-light" style="border-color:ButtonHighlight">
+            @Html.ActionLink("Create New Hero", "SuperheroCreate")
+        </button>
+    </center>
+    <h1></h1>
+    <table class="table table-hover" style="border:groove; border-color:aliceblue">
+        <tr class="table-light">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th></th>
+            <th></th>
         </tr>
-
         @foreach (var item in Model)
         {
             <tr>
@@ -31,11 +33,12 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "SuperheroEdit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "SuperheroDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "SuperheroDetails", new { id = item.Id })
+                </td>
+                <td>
                     @Html.ActionLink("Delete", "SuperheroDelete", new { id = item.Id })
                 </td>
             </tr>
         }
-
     </table>
-
+</body>
