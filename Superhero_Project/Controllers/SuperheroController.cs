@@ -16,6 +16,13 @@ namespace Superhero_Project.Controllers
             SuperheroContext db = new SuperheroContext();
             return View(db.Superhero);
         }
+        public ActionResult SuperheroCreate(int? id)
+        {
+            SuperheroContext db = new SuperheroContext();
+            Superhero createHero = db.Superhero.SingleOrDefault(identity => identity.Id == 0);
+            return View(createHero);
+        }
+        [HttpPost]
         public ActionResult SuperheroCreate(Superhero superhero)
         {
             SuperheroContext db = new SuperheroContext();

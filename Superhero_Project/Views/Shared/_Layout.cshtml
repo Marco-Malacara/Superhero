@@ -9,24 +9,10 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-nav">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="nav-stacked" data-toggle="model">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 @Html.ActionLink("Superheros", "SuperheroList", "Superhero", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Superheros", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Superheros", "Index", "Superheros")</li>
-                    <li>@Html.ActionLink("Details", "Index", "Details")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -34,6 +20,7 @@
         @RenderBody()
         <hr />
         <footer>
+            <p>@Html.ActionLink("Home", "Index", string.Empty)</p>
             <p>&copy; @DateTime.Now.Year - Superheros</p>
         </footer>
     </div>
