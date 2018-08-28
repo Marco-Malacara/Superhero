@@ -3,6 +3,14 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<center>
-    <img src="~/Image/Deadpool.jpg" alt="Batman" style="border:groove; border-color:aliceblue" />
-</center>
+<body>
+    <center>
+        <button type="button" class="btn btn-outline-info btn-block">
+            @Html.ActionLink("Superhero's", "SuperheroList", "Superhero")
+        </button>
+    </center>
+    <h1></h1>
+    <center>
+        <img src="~/Image/Deadpool.jpg" alt="Batman" style="border:groove; border-color:aliceblue; width:1110px" />
+    </center>
+</body>

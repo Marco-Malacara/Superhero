@@ -11,6 +11,7 @@
     <center>
         <img src="~/Image/giffy.gif" height="200" style="border:groove; border-color:aliceblue" />
     </center>
+    <h1></h1>
     <center>
         <button type="button" class="btn btn-lg btn-light" style="border-color:ButtonHighlight">
             @Html.ActionLink("Create New Hero", "SuperheroCreate")
@@ -41,4 +42,11 @@
             </tr>
         }
     </table>
+    <footer>
+        <center>
+            <button type="button" class="btn btn-outline-light">
+                @Html.ActionLink("Home", "Index", string.Empty)
+            </button>
+        </center>
+    </footer>
 </body>

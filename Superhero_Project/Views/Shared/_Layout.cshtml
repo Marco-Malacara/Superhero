@@ -9,22 +9,11 @@
 
 </head>
 <body>
-    <div class="navbar-nav">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="btn btn-outline-light">
-                        @Html.ActionLink("Superhero's", "SuperheroList", "Superhero", new { area = "" }, new { @class = "navbar-brand" })
-                </button>
-            </div>
-        </div>
-    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <button type="button" class="btn btn-outline-light">
-                <p>@Html.ActionLink("Home", "Index", string.Empty)</p>
-            </button>
+            
                 <p>&copy; @DateTime.Now.Year - Superheros</p>
         </footer>
     </div>
